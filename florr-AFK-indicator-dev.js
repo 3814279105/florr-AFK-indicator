@@ -43,7 +43,7 @@ function mainLoop() {
 }
 
 // 此处你需要在workerBlob里补全识别算法
-// pageImageData, pageCanvasWidth, pageCanvasHeight,
+// pageImageData, pageCanvasWidth, pageCanvasHeight为传入的参数
 // 识别到AFK Check则将matchFound:设为true
 const workerBlob = new Blob([`
 self.onmessage = function (e) {
@@ -52,7 +52,7 @@ self.onmessage = function (e) {
         pageImageData, pageCanvasWidth, pageCanvasHeight,
     } = e.data;
 
-    // 遍历网页截图的示例
+    // 遍历pageImageData的示例
     for (let y = 0; y < pageCanvasHeight; y++) {
         for (let x = 0; x < pageCanvasWidth; x++) {
             const index = (y * pageCanvasWidth + x)*4;
