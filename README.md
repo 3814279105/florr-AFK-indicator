@@ -1,16 +1,13 @@
 # florr-AFK-indicator
-~A script that detects AFK Check Buttons on florr.io.~ Due to some changes, the script is no longer effective.
-This program provides a solution to run scripts while the webpage is minimized.
-If you complete it's OCR algorithm, it will notify you through system notification when an AFK Check is detected.
-~May be unable to work well on some computers (especially laptops) until OCR algorithm is improved.~
+This program contains a script that detects AFK Check Buttons on [florr.io](florr.io). It will notify you through system notification when an AFK Check is detected. Can even run when the browsre tab is minimized or placed into a [Virtual Desktop](https://learn.microsoft.com/en-us/archive/blogs/uspartner_ts2team/windows-virtual-desktop).
+This program also provides a solution to run scripts in game [florr.io](florr.io) while the webpage is minimized.
 
-# usage of florr-AFK-indicator.user.js (outdated)
-1. install Tampermonkey in your Browser (optional);
-2. Convert a picture of AFK Check button to a link. You can use Data URI Scheme. [Tool](https://www.base64-image.de/).
-3. Use the copied link to replace the link in the original javaScript file.
-4. Paste revised script into Tampermonkey or debug console.
-5. Make sure that the notification permission of florr.io is "granted".
-6. Press Alt+P to start and stop the script.
+# usage of florr-AFK-indicator.user.js
+1. install [Tampermonkey](https://www.tampermonkey.net/) into your Browser (optional);
+2. Paste florr-AFK-indicator.user.js into Tampermonkey extension or debug console.
+3. For Tampermonkey extension, press Ctrl+S to save script; for debug console, press enter to run.
+4. Make sure that the notification permission of florr.io is "granted".
+5. Press Alt+P to start and stop the script.
 
 # usage of florr-AFK-indicator-dev.js
-Revise that file according to annotations so that you can use it to notify yourself when there's an AFK Check.
+You can revise that file according to the annotations so that you can use it to detect something in florr.io.
