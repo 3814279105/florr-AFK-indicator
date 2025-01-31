@@ -2,8 +2,8 @@
 // @name            florr-AFK-indicator
 // @namespace       http://tampermonkey.net/
 // @version         test
-// @description     Quantumwave's AFK Check Auto-detecter for Florr.io
-// @author          quantumwave
+// @description     AFK Check Auto-detecter for Florr.io
+// @author          https://github.com/3814279105/
 // @match           https://florr.io
 // @icon            https://florr.io/favicon.ico
 // @grant           none
