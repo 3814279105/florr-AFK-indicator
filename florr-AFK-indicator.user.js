@@ -2,8 +2,8 @@
 // @name            florr-AFK-indicator
 // @namespace       http://tampermonkey.net/
 // @version         test
-// @description     AFK Check Auto-detecter for Florr.io
-// @author          https://github.com/3814279105/
+// @description     Quantumwave's AFK Check Auto-detecter for Florr.io
+// @author          quantumwave
 // @match           https://florr.io
 // @icon            https://florr.io/favicon.ico
 // @grant           none
@@ -51,6 +51,7 @@ function mainLoop() {
     });
 }
 
+//使用Tesseract进行OCR文字识别
 const workerBlob = new Blob([`
 importScripts('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
 self.onmessage = function (e) {
@@ -79,8 +80,8 @@ self.onmessage = function (e) {
 //利用web worker创建独立线程，防止识别时游戏卡顿
 const worker = new Worker(URL.createObjectURL(workerBlob));
 worker.onmessage = function (e) {
-    const {status, text, error} = e.data;
-    if (status=='success') {
+    const { status, text, error } = e.data;
+    if (status == 'success') {
         if (text.includes("AFK")) {
             console.log('AFK Check detected!');
             if (Notification.permission === "granted") {
@@ -88,10 +89,15 @@ worker.onmessage = function (e) {
                     body: 'AFK Check detected',
                     icon: "https://florr.io/favicon.ico",
                 }); // 发送系统通知
-            }    
+            }
         } else {
-            console.log('AFK Check not detected. text:',text);
+            console.log('AFK Check not detected.');
         }
+        console.group()
+        console.log('TEXT:' + text)
+        console.groupEnd()
+    } else {
+        console.warn("An error occured in OCR: " + error)
     }
     if (isRunning) {
         timeoutId_main = setTimeout(mainLoop, 5000); // 指定间隔后执行下一次扫描（此处为5秒）
