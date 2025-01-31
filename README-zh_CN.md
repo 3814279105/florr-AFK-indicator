@@ -11,3 +11,7 @@
 
 #florr-AFK-indicator-dev.js 的使用方法
 您可以根据注释修改该文件，以便使用它来检测 florr.io 中的内容。
+
+# 参考项目
+本项目引用了以下开源项目：
+- [Tesseract.js](https://github.com/naptha/tesseract.js)
