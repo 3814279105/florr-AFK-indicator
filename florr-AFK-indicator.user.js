@@ -51,9 +51,6 @@ function mainLoop() {
     });
 }
 
-// 此处你需要在workerBlob里补全识别算法
-// pageImageData, pageCanvasWidth, pageCanvasHeight,
-// 识别到AFK Check则将matchFound:设为true
 const workerBlob = new Blob([`
 importScripts('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
 self.onmessage = function (e) {
