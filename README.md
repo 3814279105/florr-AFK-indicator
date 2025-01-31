@@ -11,3 +11,7 @@ This program also provides a solution to run scripts in game [florr.io](https://
 
 # usage of florr-AFK-indicator-dev.js
 You can revise that file according to the annotations so that you can use it to detect something in florr.io.
+
+# Refrence
+This project references the following open-source projects:
+- [Tesseract.js](https://github.com/naptha/tesseract.js)
