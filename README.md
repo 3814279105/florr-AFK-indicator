@@ -1,6 +1,7 @@
 # florr-AFK-indicator
 This program contains a script that detects AFK Check Buttons on [florr.io](https://florr.io). It will notify you through system notification when an AFK Check is detected. Can even run when the browser tab is minimized or placed into a [Virtual Desktop](https://learn.microsoft.com/en-us/archive/blogs/uspartner_ts2team/windows-virtual-desktop).
 This program also provides a solution to run scripts in game [florr.io](https://florr.io) while the webpage is minimized.
+
 [中文版介绍](README-zh_CN.md)
 
 # usage of florr-AFK-indicator.user.js
