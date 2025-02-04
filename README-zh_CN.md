@@ -5,7 +5,7 @@
 # florr-AFK-indicator.user.js 的使用方法
 1. 在浏览器中安装 [Tampermonkey](https://www.tampermonkey.net/)（可选）；
 2. 将 florr-AFK-indicator.user.js 粘贴到 Tampermonkey 扩展程序或调试控制台。
-3. 3. 对于 Tampermonkey 扩展，按 Ctrl+S 保存脚本；对于调试控制台，按回车运行。
+3. 对于 Tampermonkey 扩展，按 Ctrl+S 保存脚本；对于调试控制台，按回车运行。
 4. 确保 florr.io 的通知权限为 “已授予”。
 5. 按 Alt+P 启动和停止脚本。
 
