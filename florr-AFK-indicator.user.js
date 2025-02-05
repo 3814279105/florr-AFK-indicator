@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            florr-AFK-indicator
 // @namespace       http://tampermonkey.net/
-// @version         test
+// @version         1.0.3
 // @description     AFK Check Auto-detecter for Florr.io
 // @author          https://github.com/3814279105/
 // @match           https://florr.io
@@ -34,6 +34,46 @@ timer.onmessage = function (e) {
 function preciseTimeout(callback, delay, id) {
     callbacks.set(id, callback);
     timer.postMessage({ action: 'start', delay, id });
+}
+
+// 弹窗生成函数
+function showPopup(message) {
+    // 如果不存在弹窗元素，则创建新的
+    let popup = document.getElementById('custom-popup');
+    if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'custom-popup';
+        Object.assign(popup.style, {
+            position: 'fixed',
+            top: '20%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)', // 半透明背景
+            color: 'white',
+            padding: '15px',
+            borderRadius: '8px',
+            zIndex: '32767',
+            fontSize: '16px',
+            textAlign: 'center',
+            opacity: '1',
+            transition: 'opacity 2s', // 设置淡出动画
+            pointerEvents: 'none', // 允许点击穿透
+        });
+        document.body.appendChild(popup);
+    }
+    // 更新弹窗内容和样式
+    popup.innerText = message;
+    popup.style.opacity = '1'; // 重置透明度
+    // 3秒后开始淡出
+    preciseTimeout(() => {
+        popup.style.opacity = '0';
+    }, 3000, 'popup');
+    // 动画结束后移除元素
+    popup.addEventListener('transitionend', () => {
+        if (popup.style.opacity === '0') {
+            popup.remove();
+        }
+    });
 }
 
 // 主程序
@@ -110,6 +150,7 @@ window.addEventListener('keydown', function (event) {
         isRunning = !isRunning;
         const info = isRunning ? 'Script started' : 'Script stopped'
         console.log(info);
+        showPopup(info);
         if (isRunning) {
             mainLoop(); // 本行用于启动脚本
         } else {
